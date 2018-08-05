@@ -22,6 +22,10 @@ const ROUTES = [
     component: RequestsComponent
   },
   {
+    path: 'requests/:id',
+    component: RequestComponent
+  },
+  {
     path: '',
     redirectTo: 'requests',
     pathMatch: 'full'
