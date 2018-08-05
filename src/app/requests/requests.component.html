@@ -2,21 +2,21 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-10 offset-2">
-				<a href="/#/requests/add?get" id="add-request-button" class="btn btn-link"> Add Request</a>
+				<a href="/requests/add?get" id="add-request-button" class="btn btn-link"> Add Request</a>
 			</div>
 		</div>
 		<div class="row">
 			<ul id="requests" *ngFor="let request of requests" class="col-10">
 				<li id="request-item">
 					<article>
-						<a href="/#/requests/{{request._id}}">
+						<a href="/requests/{{request._id}}">
 							<h4>{{request.id}} - {{request.title}}</h4>
 						</a>
 						<ul class="task-list" *ngFor="let task of request.tasks">
 							<li *ngIf="task.isCompleted != true">
 								<p class="task-header">
 									<span class="{{task.taskStatus}}">{{task.taskStatus}}</span>
-									<a href="/#/requests/{{request._id}}/tasks/{{task.taskID}}">{{task.title}}</a>
+									<a href="/requests/{{request._id}}/tasks/{{task.taskID}}">{{task.title}}</a>
 								</p>
 							</li>
 						</ul>
