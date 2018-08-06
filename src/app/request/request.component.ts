@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from '../request.service';
 
 @Component({
   selector: 'app-request',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestComponent implements OnInit {
 
-  constructor() { }
+  request = {};
+
+  constructor(private requestService: RequestService) { }
 
   ngOnInit() {
+    this.requestService.getRequestByID().subscribe(request => {
+      this.request = request;
+    });
   }
 
 }
