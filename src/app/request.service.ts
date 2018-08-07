@@ -9,7 +9,7 @@ export class RequestService {
 
   constructor(private http: Http) { }
 
-  getRequestByID(string id) {
+  getRequestByID(id:string) {
   return this.http.get(`/api/requests/${id}`)
     .pipe(map((response: any) => response.json()));
   }

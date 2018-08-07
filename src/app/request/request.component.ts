@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RequestService } from '../request.service';
 
 @Component({
@@ -10,11 +11,13 @@ export class RequestComponent implements OnInit {
 
   request = {};
 
-  constructor(private requestService: RequestService) { }
+  constructor(private requestService: RequestService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.requestService.getRequestByID().subscribe(request => {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.requestService.getRequestByID(id).subscribe(request => {
       this.request = request;
+      console.log(request);
     });
   }
 

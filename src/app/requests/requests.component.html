@@ -16,7 +16,7 @@
 							<li *ngIf="task.isCompleted != true">
 								<p class="task-header">
 									<span class="{{task.taskStatus}}">{{task.taskStatus}}</span>
-									<a href="/requests/{{request._id}}/tasks/{{task.taskID}}">{{task.title}}</a>
+									<a routerLink="/requests/{{request._id}}/tasks/{{task.taskID}}">{{task.title}}</a>
 								</p>
 							</li>
 						</ul>

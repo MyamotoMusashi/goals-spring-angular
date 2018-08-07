@@ -1,3 +1,111 @@
-<p>
-  request totally works!
-</p>
+<div class="col-12">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-10 offset-2">
+				<a href="/#/requests" id="backButton" class="btn btn-link">back</a>
+				<a href="/#/requests/{{request._id}}/edit?get" id="editButton" class="btn btn-link">edit</a>
+				<a href="/#/requests/{{request._id}}/delete" class="btn btn-danger" id="deleteButton">delete</a>
+				<a href="/#/requests/{{request._id}}/storage" class="btn btn-link">Create Storage</a>
+				<a href="/#/requests/{{request._id}}/storage/open" class="btn btn-link">Open Storage</a>
+			</div>
+		</div>
+		<div class="row">
+			<div id="request" class="col-10">
+				<h1>{{request.id}} - {{request.title}}</h1>
+				<ul>
+					<li>
+						<article class="request-item">
+							<input type="checkbox" class="request-item-checkbox">
+							<h2 class="request-item-header">Info</h2>
+							<div class="request-item-content">{{request.info}}</div>
+						</article>
+					</li>
+					<li>
+						<article class="request-item">
+							<input type="checkbox" class="request-item-checkbox">
+							<h2 class="request-item-header">Description</h2>
+							<div class="request-item-content">{{request.description}}</div>
+						</article>
+					</li>
+					<li>
+						<article class="request-item">
+							<input type="checkbox" class="request-item-checkbox">
+							<h2 class="request-item-header">Troubleshooting</h2>
+							<p>{{request.troubleshooting}}</p>
+							<ul class="task-list">
+								<li *ngFor="let task of request.tasks">
+									<p class="task-header" *ngIf="task.isCompleted == true">
+										<span class="{{task.taskStatus}}">{{task.taskStatus}}</span> <a href="/#/requests/#/tasks/{{task.taskID}}">{{task.title}}</a>
+									</p>
+								</li>
+							</ul>
+						</article>
+					</li>
+					<li>
+						<article class="request-item">
+							<input type="checkbox" class="request-item-checkbox">
+							<h2 class="request-item-header">Data Collection</h2>
+							<div class="request-item-content">{{request.dataCollection}}</div>
+						</article>
+					</li>
+					<li>
+						<article class="request-item">
+							<input type="checkbox" class="request-item-checkbox">
+							<h2 class="request-item-header">Steps to Reproduce</h2>
+							<div class="request-item-content">{{request.stepsToReproduce}}</div>
+						</article>
+					</li>
+					<li>
+						<article class="request-item">
+							<input type="checkbox" class="request-item-checkbox">
+							<h2 class="request-item-header">Is this fresh installation? If not what changed ?</h2>
+							<div class="request-item-content">{{request.isItFreshInstall}}</div>
+						</article>
+					</li>
+					<li>
+						<article class="request-item">
+							<input type="checkbox" class="request-item-checkbox">
+							<h2 class="request-item-header">Does this affect just one or all machines ?</h2>
+							<div class="request-item-content">{{request.oneMachineOrAll}}</div>
+						</article>
+					</li>
+					<li>
+						<article class="request-item">
+							<input type="checkbox" class="request-item-checkbox">
+							<h2 class="request-item-header">What hotfixes have been tried or are installed ?</h2>
+							<div class="request-item-content">{{request.hotfixes}}</div>
+						</article>
+					</li>
+					<li>
+						<article class="request-item">
+							<input type="checkbox" class="request-item-checkbox">
+							<h2 class="request-item-header">What related documents have been found ?</h2>
+							<div class="request-item-content">{{request.relatedDocuments}}</div>
+						</article>
+					</li>
+					<li>
+						<article class="request-item">
+							<input type="checkbox" class="request-item-checkbox">
+							<h2 class="request-item-header">What is our customer expectation ?</h2>
+							<div class="request-item-content">{{request.customerExpectation}}</div>
+						</article>
+					</li>
+					<li>
+						<article class="request-item">
+							<input type="checkbox" class="request-item-checkbox">
+							<h2 class="request-item-header">Tasks</h2>
+							<ul class="task-list" id="taskList">
+								<li data-id="{{this.taskID}}" *ngFor="let task of request.tasks">
+									<p class="task-header" *ngIf="task.isCompleted != true">
+										<span class="{{task.taskStatus}}">{{task.taskStatus}}</span> <a href="/#/requests/#/tasks/{{task.taskID}}">{{task.title}}</a>
+									</p>
+								</li>
+							</ul>
+							<a href="/#/requests/#/tasks/add/get" class="btn btn-link">add-task</a>
+						</article>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
