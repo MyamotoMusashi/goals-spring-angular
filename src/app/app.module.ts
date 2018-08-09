@@ -26,7 +26,7 @@ const ROUTES = [
     component: RequestComponent
   },
   {
-    path: 'requests/:id/tasks/:id',
+    path: 'requests/:requestID/tasks/:taskID',
     component: TaskComponent
   },
   {
