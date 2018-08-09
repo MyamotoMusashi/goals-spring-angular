@@ -17,7 +17,6 @@ export class RequestComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.requestService.getRequestByID(id).subscribe(request => {
       this.request = request;
-      console.log(request);
     });
   }
 
