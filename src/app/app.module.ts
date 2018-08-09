@@ -26,6 +26,10 @@ const ROUTES = [
     component: RequestComponent
   },
   {
+    path: 'requests/:id/tasks/:id',
+    component: TaskComponent
+  },
+  {
     path: '',
     redirectTo: 'requests',
     pathMatch: 'full'
