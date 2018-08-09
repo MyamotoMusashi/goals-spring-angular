@@ -35,7 +35,7 @@
 							<ul class="task-list">
 								<li *ngFor="let task of request.tasks">
 									<p class="task-header" *ngIf="task.isCompleted == true">
-										<span class="{{task.taskStatus}}">{{task.taskStatus}}</span> <a href="/#/requests/#/tasks/{{task.taskID}}">{{task.title}}</a>
+										<span class="{{task.taskStatus}}">{{task.taskStatus}}</span> <a href="/requests/{{request._id}}/tasks/{{task.taskID}}">{{task.title}}</a>
 									</p>
 								</li>
 							</ul>
@@ -97,7 +97,7 @@
 							<ul class="task-list" id="taskList">
 								<li data-id="{{this.taskID}}" *ngFor="let task of request.tasks">
 									<p class="task-header" *ngIf="task.isCompleted != true">
-										<span class="{{task.taskStatus}}">{{task.taskStatus}}</span> <a href="/#/requests/#/tasks/{{task.taskID}}">{{task.title}}</a>
+										<span class="{{task.taskStatus}}">{{task.taskStatus}}</span> <a href="requests/{{request._id}}/tasks/{{task.taskID}}">{{task.title}}</a>
 									</p>
 								</li>
 							</ul>
