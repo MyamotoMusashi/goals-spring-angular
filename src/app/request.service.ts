@@ -9,8 +9,13 @@ export class RequestService {
 
   constructor(private http: Http) { }
 
-  getRequestByID(id:string) {
-  return this.http.get(`/api/requests/${id}`)
-    .pipe(map((response: any) => response.json()));
+  getRequestByID(id: string) {
+    return this.http.get(`/api/requests/${id}`)
+      .pipe(map((response: any) => response.json()));
+  }
+
+  deleteRequestByID(id: string) {
+    return this.http.delete(`/api/requests/${id}`)
+      .pipe(map((response: any) => response.json()));
   }
 }
