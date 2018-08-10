@@ -24,10 +24,14 @@ const ROUTES = [
   {
 	path: 'requests/add',
 	component: AddRequestComponent
-  }
+  },
   {
     path: 'requests/:id',
     component: RequestComponent
+  },
+  {
+	path: 'requests/:id/edit',
+	component: EditRequestComponent
   },
   {
 	path: 'requests/:requestID/tasks/add' ,
