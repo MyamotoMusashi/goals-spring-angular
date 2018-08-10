@@ -22,11 +22,15 @@ const ROUTES = [
     component: RequestsComponent
   },
   {
+	path: 'requests/add',
+	component: AddRequestComponent
+  }
+  {
     path: 'requests/:id',
     component: RequestComponent
   },
   {
-	path: 'requests/:requestID/tasks?add' ,
+	path: 'requests/:requestID/tasks/add' ,
 	component: AddTaskComponent
   },
   {
