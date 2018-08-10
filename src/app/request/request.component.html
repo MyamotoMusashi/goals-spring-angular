@@ -4,7 +4,7 @@
 			<div class="col-10 offset-2">
 				<a routerLink="/requests" id="backButton" class="btn btn-link">back</a>
 				<a routerLink="/requests/{{request._id}}/edit" id="editButton" class="btn btn-link">edit</a>
-				<a href="/#/requests/{{request._id}}/delete" class="btn btn-danger" id="deleteButton">delete</a>
+				<button class="btn btn-danger" id="deleteButton" (click)="deleteRequestByID()">delete</button>
 				<a href="/#/requests/{{request._id}}/storage" class="btn btn-link">Create Storage</a>
 				<a href="/#/requests/{{request._id}}/storage/open" class="btn btn-link">Open Storage</a>
 			</div>
