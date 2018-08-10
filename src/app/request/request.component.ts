@@ -20,4 +20,9 @@ export class RequestComponent implements OnInit {
     });
   }
 
+  deleteRequestByID(){
+    const id = this.route.snapshot.paramMap.get('id')
+    this.requestService.deleteRequestByID(id).subscribe();
+  }
+
 }
