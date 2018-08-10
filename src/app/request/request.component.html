@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-10 offset-2">
 				<a href="/#/requests" id="backButton" class="btn btn-link">back</a>
-				<a href="/#/requests/{{request._id}}/edit?get" id="editButton" class="btn btn-link">edit</a>
+				<a routerLink="/requests/{{request._id}}/edit" id="editButton" class="btn btn-link">edit</a>
 				<a href="/#/requests/{{request._id}}/delete" class="btn btn-danger" id="deleteButton">delete</a>
 				<a href="/#/requests/{{request._id}}/storage" class="btn btn-link">Create Storage</a>
 				<a href="/#/requests/{{request._id}}/storage/open" class="btn btn-link">Open Storage</a>
@@ -97,7 +97,7 @@
 							<ul class="task-list" id="taskList">
 								<li data-id="{{this.taskID}}" *ngFor="let task of request.tasks">
 									<p class="task-header" *ngIf="task.isCompleted != true">
-										<span class="{{task.taskStatus}}">{{task.taskStatus}}</span> <a routerLink="requests/{{request._id}}/tasks/{{task.taskID}}">{{task.title}}</a>
+										<span class="{{task.taskStatus}}">{{task.taskStatus}}</span> <a routerLink="/requests/{{request._id}}/tasks/{{task.taskID}}">{{task.title}}</a>
 									</p>
 								</li>
 							</ul>
