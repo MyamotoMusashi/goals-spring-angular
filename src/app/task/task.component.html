@@ -1,3 +1,22 @@
-<p>
-  task works!
-</p>
+<div class="col-12">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-10 offset-2">
+				<a href="{{task.links.backLink}}" id="backButton" class="btn btn-link">back</a>
+				<a href="{{task.links.editLink}}" id="editButton" class="btn btn-link">edit</a>
+				<a href="{{task.links.deleteLink}}" class="btn btn-danger" id="deleteButton">delete</a>
+				<a href="{{task.links.completedLink}}" class="btn btn-success">Complete</a>
+			</div>
+		</div>
+		<div class="row">
+			<div id="task" class="col-10">
+				<h1>{{task.title}}</h1>
+				<article class="request-item">
+					<input type="checkbox" class="request-item-checkbox">
+					<h2 class="request-item-header">Description</h2>
+					<div class="request-item-content">{{task.taskDescription}}</div>
+				</article>
+			</div>
+		</div>
+	</div>
+</div>
