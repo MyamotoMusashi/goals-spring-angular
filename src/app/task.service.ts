@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  constructor(private http: Http) { }
-  
+  constructor(private http: HttpClient) { }
+
   getTaskByID(requestID: string, taskID: string) {
-	return this.http.get(`/api/requests/${requestID}/tasks/${taskID}`)
-		.pipe(map((response: any) => response.json()));
+    return this.http.get(`/api/requests/${requestID}/tasks/${taskID}`)
   }
 }
