@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RequestService } from '../request.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class RequestComponent implements OnInit {
 
   request = {};
 
-  constructor(private requestService: RequestService, private route: ActivatedRoute) { }
+  constructor(private requestService: RequestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -20,9 +20,11 @@ export class RequestComponent implements OnInit {
     });
   }
 
-  deleteRequestByID(){
+  deleteRequestByID() {
     const id = this.route.snapshot.paramMap.get('id')
-    this.requestService.deleteRequestByID(id).subscribe();
+    this.requestService.deleteRequestByID(id).subscribe(() => {
+      this.router.navigateByUrl('/requests')
+    })
   }
 
 }
