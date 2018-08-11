@@ -1,3 +1,18 @@
-<p>
-  add-request works!
-</p>
+<div class="col-10">
+  <form #requestForm="ngForm">
+    <textarea id="title" placeholder="title" [(ngModel)]="request.title" name="title"></textarea>
+    <textarea id="id" placeholder="id" [(ngModel)]="request.id" name="id"></textarea>
+    <textarea id="info" placeholder="info" [(ngModel)]="request.info" name="info"></textarea>
+    <textarea id="description" placeholder="description" [(ngModel)]="request.description" name="description"></textarea>
+    <textarea id="isItFreshInstall" placeholder="Is this fresh install or not?" [(ngModel)]="request.isItFreshInstall" name="isItFreshInstall"></textarea>
+    <textarea id="stepsToReproduce" placeholder="Steps to reproduce" [(ngModel)]="request.stepsToReproduce" name="stepsToReproduce"></textarea>
+    <textarea id="customerExpectation" placeholder="Customer's Expectation" [(ngModel)]="request.customerExpectation" name="customerExpectation"></textarea>
+    <textarea id="oneMachineOrAll" placeholder="Does this affect one machine or all?" [(ngModel)]="request.oneMachineOrAll" name="oneMachineOrAll"></textarea>
+    <textarea id="hotfixes" placeholder="What hotfixes have been tried?" [(ngModel)]="request.hotfixes" name="hotfixes"></textarea>
+    <textarea id="relatedDocuments" placeholder="What related documents have been found?" [(ngModel)]="request.relatedDocuments" name="relatedDocuments"></textarea>
+    <textarea id="troubleshooting" placeholder="Troubleshooting" [(ngModel)]="request.troubleshooting" name="troubleshooting"></textarea>
+    <textarea id="dataCollection" placeholder="DataCollection" [(ngModel)]="request.dataCollection" name="dataCollection"></textarea>
+  </form>
+  <button href="/#/requests/add?post" id="addButton" (click)="addRequest()">Add</button>
+  <a routerLink="/requests" id="cancelButton" class="btn btn-link">Back</a>
+</div>
