@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 
@@ -22,20 +23,20 @@ const ROUTES = [
     component: RequestsComponent
   },
   {
-	path: 'requests/add',
-	component: AddRequestComponent
+    path: 'requests/add',
+    component: AddRequestComponent
   },
   {
     path: 'requests/:id',
     component: RequestComponent
   },
   {
-	path: 'requests/:id/edit',
-	component: EditRequestComponent
+    path: 'requests/:id/edit',
+    component: EditRequestComponent
   },
   {
-	path: 'requests/:requestID/tasks/add' ,
-	component: AddTaskComponent
+    path: 'requests/:requestID/tasks/add',
+    component: AddTaskComponent
   },
   {
     path: 'requests/:requestID/tasks/:taskID',
@@ -62,7 +63,8 @@ const ROUTES = [
   ],
   imports: [
     BrowserModule,
-	HttpModule,
+    HttpModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES) // Add routes to the app
   ],
   providers: [],
