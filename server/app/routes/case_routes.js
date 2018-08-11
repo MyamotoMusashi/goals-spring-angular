@@ -256,7 +256,7 @@ module.exports = function (app, db) {
 					if (err) {
 						res.send({ 'error': 'An error has occurred' });
 					} else {
-						res.send('request ' + id + ' deleted!');
+						res.json('request ' + id + ' deleted!');
 					}
 				});
 			}
@@ -294,7 +294,6 @@ module.exports = function (app, db) {
 	});
 
 	app.post('/api/requests', (req, res) => {
-		console.log("here");
 		const request = {
 			title: req.body.title,
 			id: req.body.id,
@@ -310,13 +309,11 @@ module.exports = function (app, db) {
 			dataCollection: req.body.dataCollection,
 			latestUpdateDate: new Date(Date.now()).toISOString()
 		};
-		console.log(request);
 		db.collection('requests').insert(request, (err, result) => {
 			if (err) {
 				console.log(err);
 				res.send({ 'error': 'An error has occurred' });
 			} else {
-				console.log(result);
 				res.send(result.ops[0]);
 			}
 		});
