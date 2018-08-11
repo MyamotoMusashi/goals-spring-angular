@@ -14,8 +14,10 @@ export class RequestsComponent implements OnInit {
 
   ngOnInit() {
     this.requestService.getAllRequests().subscribe(requests => {
-      this.requests = requests;
-    });
-  }
+      Object.values(requests).map(request => {
+        this.requests.push(request);
+      })
+  });
+}
 
 }
