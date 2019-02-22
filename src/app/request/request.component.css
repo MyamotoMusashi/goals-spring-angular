@@ -1,108 +1,27 @@
-html,body{
-	height:100%;
-	font-size:11px;
+.navigation{
+	background-color: whitesmoke;
 }
 
-.nav-menu{
+.list-group{
+	height:90vh;
+	overflow-y:scroll;
+}
+
+#requests{
 	list-style-type: none;
-	height:100%;
-	padding:0;
 }
 
-.nav-li{
-	border: 1px solid rgb(63, 72, 204);
-}
-.card-body{
-	padding:0;
-}
-
-#request{
-	border: 1px solid rgb(63, 72, 204);
-	color: white;
-	background-color: rgb(97, 97, 97);
+#request-item{
+	padding: 3vh;
+	height: 9vh;
+	border-top: 1px solid whitesmoke;
+	vertical-align: bottom;
 }
 
-#backButton, #editButton{
-	background-color: rgb(0, 162, 232);
-	color: white;
-	margin:5px;
+#request-item:hover{
+	background-color: whitesmoke;
 }
 
-#deleteButton{
-	color: white;
-	margin:5px;
-}
-
-.request-item{
-	border-bottom: 1px solid rgb(63, 72, 204);
-}
-.request-item-checkbox, .request-item-header{
-	display:inline-block;
-}
-
-.request-item-header{
-	color:black;
-}
-
-.request-item-content{
-	display:block;
-	background-color: rgb(97, 97, 97);
-	color:white;
-	white-space: pre;
-}
-
-.task-list{
-	display:block;
-}
-
-.request-item-checkbox:checked  ~ .request-item-content{
-	display:none;
-}
-
-.request-item-checkbox:checked  ~ .task-list{
-	display:none;
-}
-
-.add-task-button:active ~ .add-task-content{
-	display:none;
-}
-
-.CPE{
-	border-radius:3px;
-	background-color:rgb(255,225,0);
-	font-weight:500;
-}
-
-.Me{
-	border-radius:3px;
-	background-color:rgb(255,0,0);
-	font-weight:500;
-}
-
-.Customer{
-	border-radius:3px;
-	background-color:rgb(0,0,255);
-	font-weight:500;
-}
-
-.AdditionalResources{
-	border-radius:3px;
-	background-color:rgb(0,225,0);
-	font-weight:500;
-}
-
-.WebEx{
-	border-radius:3px;
-	background-color:rgb(255, 0, 255);
-	font-weight:500;
-}
-
-.Elevation{
-	border-radius:3px;
-	background-color:rgb(255, 125, 0);
-	font-weight:500;
-}
-
-.task-header{
-	display:inline-block;
+list-group ul li a{
+	font-size:1em;
 }

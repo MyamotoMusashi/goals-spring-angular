@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { RouterModule } from '@angular/router';
+import { SortablejsModule} from 'angular-sortablejs'
 
 import { AppComponent } from './app.component';
 import { RequestsComponent } from './requests/requests.component';
@@ -27,6 +27,14 @@ const ROUTES = [
     component: AddRequestComponent
   },
   {
+    path: 'requests/waiting',
+    component: RequestsComponent
+  },
+  {
+    path: 'requests/active',
+    component: RequestsComponent
+  },
+  {
     path: 'requests/:id',
     component: RequestComponent
   },
@@ -41,6 +49,10 @@ const ROUTES = [
   {
     path: 'requests/:requestID/tasks/:taskID',
     component: TaskComponent
+  },
+  {
+    path: 'requests/:requestID/tasks/:taskID/edit',
+    component: EditTaskComponent
   },
   {
     path: '',
@@ -65,7 +77,8 @@ const ROUTES = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES) // Add routes to the app
+    RouterModule.forRoot(ROUTES), // Add routes to the app
+    SortablejsModule.forRoot({ animation: 150 })
   ],
   providers: [],
   bootstrap: [AppComponent]

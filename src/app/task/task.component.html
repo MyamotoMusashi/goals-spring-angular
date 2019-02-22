@@ -2,10 +2,10 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-10 offset-2">
-				<a href="{{task.links.backLink}}" id="backButton" class="btn btn-link">back</a>
-				<a href="{{task.links.editLink}}" id="editButton" class="btn btn-link">edit</a>
-				<a href="{{task.links.deleteLink}}" class="btn btn-danger" id="deleteButton">delete</a>
-				<a href="{{task.links.completedLink}}" class="btn btn-success">Complete</a>
+				<a routerLink="../../" id="backButton" class="btn btn-link">back</a>
+				<a routerLink="./edit" id="editButton" class="btn btn-link">edit</a>
+				<button class="btn btn-danger" id="deleteButton" (click)="deleteTaskByID()">delete</button>
+				<button class="btn btn-success" (click)="completeTaskByID()">Complete</button>
 			</div>
 		</div>
 		<div class="row">

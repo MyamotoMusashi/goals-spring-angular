@@ -1,3 +1,8 @@
-<p>
-  add-task works!
-</p>
+<div class="col-10">
+  <form #taskForm="ngForm">
+    <textarea id="title" placeholder="title" [(ngModel)]="task.title" name="title"></textarea>
+    <textarea id="description" placeholder="description" [(ngModel)]="task.taskDescription" name="description"></textarea>
+  </form>
+  <button id="addButton" (click)="addTask()">Add</button>
+  <a routerLink="/requests" id="cancelButton" class="btn btn-link">Back</a>
+</div>

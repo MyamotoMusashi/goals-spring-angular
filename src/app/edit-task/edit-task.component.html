@@ -1,3 +1,20 @@
-<p>
-  edit-task works!
-</p>
+<div class="col-12">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-10 offset-2">
+				<a routerLink="../" id="backButton" class="btn btn-link">back</a>
+				<button class="btn btn-success" (click)="editTaskByID()">save</button>
+			</div>
+		</div>
+		<div class="row">
+			<div id="task" class="col-10">
+        <form #requestForm="ngForm">
+            <label>title:</label>
+            <textarea id="title" placeholder="title" [(ngModel)]="task.title" name="title"></textarea>
+            <label>description:</label>
+            <textarea id="description" placeholder="description" [(ngModel)]="task.taskDescription" name="description"></textarea>
+          </form>
+			</div>
+		</div>
+	</div>
+</div>

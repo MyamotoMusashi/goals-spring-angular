@@ -1,28 +1,31 @@
-<div class="col-12">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-10 offset-2">
-				<a routerLink="/requests/add" id="add-request-button" class="btn btn-link"> Add Request</a>
+<div class="row">
+	<div class="col-2 navigation">
+		<div class="sticky-top">
+				<a routerLink="/requests/waiting" id="add-request-button" class="btn btn-link">Waiting Goals</a>
+				<a routerLink="/requests/active" id="add-request-button" class="btn btn-link"> Active Goals</a>
+		</div>
+	</div>
+	<div class="col-10 text-left small">
+			<div class="row">
+				<div class="col-12 list-group">
+						<ul id="requests" >
+								<li id="request-item" *ngFor="let request of requests">
+									<article>
+										<input type="radio"/>
+										<a href="/requests/{{request._id}}">
+											{{request.title}}
+										</a>
+									</article>
+								</li>
+							</ul>
+				</div>	
 			</div>
-		</div>
-		<div class="row">
-			<ul id="requests" *ngFor="let request of requests" class="col-10">
-				<li id="request-item">
-					<article>
-						<a href="/requests/{{request._id}}">
-							<h4>{{request.id}} - {{request.title}}</h4>
-						</a>
-						<ul class="task-list" *ngFor="let task of request.tasks">
-							<li *ngIf="task.isCompleted != true">
-								<p class="task-header">
-									<span class="{{task.taskStatus}}">{{task.taskStatus}}</span>
-									<a routerLink="/requests/{{request._id}}/tasks/{{task.taskID}}">{{task.title}}</a>
-								</p>
-							</li>
-						</ul>
-					</article>
-				</li>
-			</ul>
-		</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="sticky-top">
+						<a routerLink="/requests/add" id="add-request-button" class="btn btn-link"> Add Goal</a>
+					</div>
+				</div>
+			</div>
 	</div>
 </div>

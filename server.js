@@ -10,6 +10,7 @@ const app = express();
 const port = 8000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 
 app.set('view engine', 'pug');
 

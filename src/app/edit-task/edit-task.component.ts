@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TaskService} from '../task.service';
 
 @Component({
   selector: 'app-edit-task',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditTaskComponent implements OnInit {
 
-  constructor() { }
+  task = {};
+
+  constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    const requestID = this.route.snapshot.paramMap.get('requestID');
+    const taskID = this.route.snapshot.paramMap.get('taskID');
+    this.taskService.getTaskByID(requestID,taskID).subscribe(task => {
+    this.task = task;
+    })
+  }
+
+  editTaskByID() {
+    const requestID = this.route.snapshot.paramMap.get('requestID');
+    const taskID = this.route.snapshot.paramMap.get('taskID');
+    this.taskService.editTaskByID(requestID, taskID, this.task).subscribe(() => {
+      this.router.navigate([`/requests/${requestID}/tasks/${taskID}`])
+    });
   }
 
 }
+

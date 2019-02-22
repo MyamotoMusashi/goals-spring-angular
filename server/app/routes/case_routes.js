@@ -1,6 +1,7 @@
 // routes/request_routes.js
 var ObjectID = require('mongodb').ObjectID;
 const directoryUtils = require('../utils/misc');
+const excel = require('../utils/excel');
 var path = require('path');
 
 module.exports = function (app, db) {
@@ -184,12 +185,8 @@ module.exports = function (app, db) {
 			title: req.body.title,
 			taskStatus: req.body.taskStatus,
 			taskDescription: req.body.taskDescription,
-			dateCreated: new Date(Date.now()).toISOString(),
-			links: {
-				backLink: `requests/${id}`,
-				editEdit: `requests/${id}/tasks/${taskID}`,
-				deleteLink: `requests/${id}/tasks/${taskID}/delete`
-			}
+			isCompleted: false,
+			dateCreated: new Date(Date.now()).toISOString()
 		};
 		const request = {
 			$push: { order: taskID.toString(), tasks: task }
@@ -274,14 +271,21 @@ module.exports = function (app, db) {
 			}
 		}
 		const request = { $set: data };
-		db.collection('requests').update(details, request, (err, result) => {
+		db.collection('requests').findOneAndUpdate(details, request, {upsert: true, returnOriginal: false}, (err, result) => {
 			if (err) {
 				res.send({ 'error': 'An error has occurred' });
 			} else {
-				res.send(request);
+				console.log(result)
+				res.json(result);
 			}
 		});
 	});
+
+	app.get('/api/tests', (req, res) => {
+		let report = excel.returnExcel(["gogo", "mogo", "pogo"]);
+		res.attachment('report.xlsx'); // This is sails.js specific (in general you need to set headers)
+    	return res.send(report);
+	})
 
 	app.get('/api/requests', (req, res) => {
 		db.collection('requests').find().sort({ latestUpdateDate: 1 }).toArray((err, requests) => {
@@ -294,6 +298,7 @@ module.exports = function (app, db) {
 	});
 
 	app.post('/api/requests', (req, res) => {
+		console.log(res.body)
 		const request = {
 			title: req.body.title,
 			id: req.body.id,
