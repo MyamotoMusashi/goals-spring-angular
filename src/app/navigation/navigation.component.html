@@ -1,0 +1,10 @@
+<div id="navigation" class="sticky-top">
+  <a routerLink="/goals" [queryParams]="{ state: 'inbox' }" class="btn btn-link">Inbox</a>
+  <a routerLink="/goals" [queryParams]="{ state: 'waiting'}" id="add-goal-button" class="btn btn-link">Waiting</a>
+  <a routerLink="/goals" [queryParams]="{ state: 'active' }" id="add-goal-button" class="btn btn-link">Active</a>
+  <a routerLink="/goals" [queryParams]="{ state: 'projects' }" class="btn btn-link">Projects</a>
+  <a routerLink="/goals" [queryParams]="{ state: 'someday' }" class="btn btn-link">Someday/Maybe?</a>
+  <a routerLink="/goals/daily" class="btn btn-link">Daily</a>
+  <a routerLink="/goals" [queryParams]="{ state: 'planned' }" class="btn btn-link">Planned</a>
+  <a routerLink="/goals" [queryParams]="{ state: 'help' }" class="btn btn-link">Help/Reference</a>
+</div>

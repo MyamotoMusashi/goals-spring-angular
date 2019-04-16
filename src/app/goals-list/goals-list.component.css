@@ -1,0 +1,28 @@
+#goals{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	height:80vh;
+	overflow-y:scroll;
+}
+
+.goal-item{
+	padding: 3vh;
+	padding-left:0;
+	margin-left:1.5vh;
+	height: 9vh;
+	border-top: 1px solid whitesmoke;
+	vertical-align: bottom;
+}
+
+.goal-item:hover{
+	background-color: whitesmoke;
+}
+
+list-group ul li a{
+	font-size:1em;
+}
+
+.completed{
+	text-decoration-line: line-through;
+}

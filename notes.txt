@@ -1,43 +1,32 @@
-mobile app
-responsive for different mobile platforms
-goal shoul have backlog of tasks
-goal should have daily/weakly/monthly backlog so we can do it in AGILE
+USERS:
+professionalist to help you.
+users to help you.
+reviewes
+doing projects / group projects together. 
+see other's simillar goals -> give opinion after completing yours -> receive points.
+find buddies in  your area to do goals together / motivate you.
+find someone to provide it and stick until completetion.
+cult of extreme productivity.
+speak/review goals by the right person.
+
+CORE:
+unit tests
+time slots planning for your daily goals routine
+back button
+pomodoro technique
 time tracker for SCRUM
-S.M.A.R.T goals - Zappier
-list of active/waiting goals
 waiting goals automatically move to active.
 Import from Excel.
-add goals.
-clearly defined
-goal dependency
-goal progress
+Export to Excel.
 break up goals to smaller goals.
-reason why needs to be done in the exact way.
-deadlines.
-goal phases.
-accomplish goals.
-reoocuring goals
-goal should have prioririty.
 goals should be automateable -> reduce time.
 actions -> do -> do later -> review -> 
 eliminate -> automate -> delegate -> 
 should I do now or can it wait until later
 > if it should be done now -> concenrate
 -> if it can wait -> procrastinate on purpose -> return to the top of the funnel
-future plan (idealied version) towards to set goals to.
-professionalist to help you.
-users to help you.
-end reason
-reviewes
 history.
-doing projects / group projects together. 
-see other's simillar goals -> give opinion after completing yours -> receive points.
-find buddies in  your area to do goals together / motivate you.
-find what is blocking you ? is anything else on your mind ? do you need muse ? what do you need
-to start woring on your goals ? (chance/luck ?)
-find someone to provide it and stick until completetion.
 start oing as early as possible with at little as possible
-find replacements for what you can
 since no app -> use execl -> real life users (real people)
 the five why to get to the/ root of why you need this. and then find replacement -> until real goal achieved.
 desing tools and theories / constructs.
@@ -57,11 +46,9 @@ stop worrying
 love the process - eric thomas
 emmet fox
 ti
-cult of extreme productivity.
 acid test kool aid - upfront everyting / off the bus / on the buss  / power of now.
 notifications based on time and place.
 mind map visualisation.
 richest man in the babylon
-speak/review goals by the right person.
-Export to Excel.
+
 Caching

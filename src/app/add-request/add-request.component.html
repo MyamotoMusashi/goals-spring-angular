@@ -1,8 +1,0 @@
-<div class="col-10">
-  <form #requestForm="ngForm">
-    <textarea id="title" placeholder="title" [(ngModel)]="request.title" name="title"></textarea>
-    <textarea id="description" placeholder="description" [(ngModel)]="request.description" name="description"></textarea>
-  </form>
-  <button href="/#/requests/add?post" id="addButton" (click)="addRequest()">Add</button>
-  <a routerLink="/requests" id="cancelButton" class="btn btn-link">Back</a>
-</div>

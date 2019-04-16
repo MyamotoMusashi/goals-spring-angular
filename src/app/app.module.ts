@@ -6,57 +6,45 @@ import { RouterModule } from '@angular/router';
 import { SortablejsModule} from 'angular-sortablejs'
 
 import { AppComponent } from './app.component';
-import { RequestsComponent } from './requests/requests.component';
+import { GoalsComponent } from './goals/goals.component';
 
-import { RequestsService } from './requests.service';
-import { RequestComponent } from './request/request.component';
-import { AddRequestComponent } from './add-request/add-request.component';
-import { AddTaskComponent } from './add-task/add-task.component';
-import { EditRequestComponent } from './edit-request/edit-request.component';
-import { EditTaskComponent } from './edit-task/edit-task.component';
-import { NagivationComponent } from './nagivation/nagivation.component';
-import { TaskComponent } from './task/task.component';
+import { GoalsService } from './goals.service';
+import { GoalComponent } from './goal/goal.component';
+import { DailygoalsComponent} from './dailygoals/dailygoals.component'
+import { AddGoalComponent } from './add-goal/add-goal.component';
+import { AddSubGoalComponent } from './add-subgoal/add-subgoal.component';
+import { EditGoalComponent } from './edit-goal/edit-goal.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { GoalsListComponent } from './goals-list/goals-list.component';
 
 const ROUTES = [
   {
-    path: 'requests',
-    component: RequestsComponent
+    path: 'goals',
+    component: GoalsComponent
   },
   {
-    path: 'requests/add',
-    component: AddRequestComponent
+    path: 'goals/daily',
+    component: DailygoalsComponent
   },
   {
-    path: 'requests/waiting',
-    component: RequestsComponent
+    path: 'goals/add',
+    component: AddGoalComponent
   },
   {
-    path: 'requests/active',
-    component: RequestsComponent
+    path: 'goals/:id',
+    component: GoalComponent
   },
   {
-    path: 'requests/:id',
-    component: RequestComponent
+    path: 'goals/:id/edit',
+    component: EditGoalComponent
   },
   {
-    path: 'requests/:id/edit',
-    component: EditRequestComponent
-  },
-  {
-    path: 'requests/:requestID/tasks/add',
-    component: AddTaskComponent
-  },
-  {
-    path: 'requests/:requestID/tasks/:taskID',
-    component: TaskComponent
-  },
-  {
-    path: 'requests/:requestID/tasks/:taskID/edit',
-    component: EditTaskComponent
+    path: 'goals/:id/subGoals/add',
+    component: AddSubGoalComponent
   },
   {
     path: '',
-    redirectTo: 'requests',
+    redirectTo: 'goals',
     pathMatch: 'full'
   }
 ];
@@ -64,14 +52,14 @@ const ROUTES = [
 @NgModule({
   declarations: [
     AppComponent,
-    RequestsComponent,
-    RequestComponent,
-    AddRequestComponent,
-    AddTaskComponent,
-    EditRequestComponent,
-    EditTaskComponent,
-    NagivationComponent,
-    TaskComponent
+    GoalsComponent,
+    DailygoalsComponent,
+    GoalComponent,
+    AddGoalComponent,
+    AddSubGoalComponent,
+    EditGoalComponent,
+    NavigationComponent,
+    GoalsListComponent
   ],
   imports: [
     BrowserModule,

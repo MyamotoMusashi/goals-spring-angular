@@ -1,7 +1,6 @@
 // routes/request_routes.js
 var ObjectID = require('mongodb').ObjectID;
 const directoryUtils = require('../utils/misc');
-const excel = require('../utils/excel');
 var path = require('path');
 
 module.exports = function (app, db) {
