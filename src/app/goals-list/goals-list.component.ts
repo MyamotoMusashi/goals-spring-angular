@@ -26,6 +26,20 @@ export class GoalsListComponent implements OnInit {
     this.goalService.editGoalByID(id, goal).subscribe();
   }
 
+  addToDaily(goal: Goal){
+    if(goal.isDaily == true){
+      goal.isDaily = false;
+    }
+    else if(goal.isDaily == false || goal.isDaily == null){
+      goal.isDaily = true;
+    }
+
+    let id: string = goal.id;
+    this.goalService.editGoalByID(id, goal).subscribe(() => {
+      this.refreshGoalList.emit(true);
+    }); ;
+  }
+
   changePriority(goal: Goal){
     let id: string = goal.id;
     this.goalService.editGoalByID(id, goal).subscribe(() => {

@@ -6,7 +6,21 @@
 	overflow-y:scroll;
 }
 
-.goal-item{
+#goal-header{
+	padding: 3vh;
+	padding-left:0;
+	margin-left:1.5vh;
+	height: 1.5vh;
+	border-top: 1px solid whitesmoke;
+	vertical-align: bottom;
+}
+
+#goal-header th{
+	border-left: 1px solid whitesmoke;
+	border-right: 1px solid whitesmoke;
+}
+
+#goal-item{
 	padding: 3vh;
 	padding-left:0;
 	margin-left:1.5vh;
@@ -15,8 +29,17 @@
 	vertical-align: bottom;
 }
 
-.goal-item:hover{
+#goal-item td{
+	border-left: 1px solid whitesmoke;
+	border-right: 1px solid whitesmoke;
+}
+
+#goal-item:hover{
 	background-color: whitesmoke;
+}
+
+#goal-item:hover td{
+	border-color: white;
 }
 
 list-group ul li a{

@@ -8,14 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class GoalService {
 
+  private host: string = "localhost";
+
   constructor(private http: HttpClient) { }
 
   public getGoalByID(id: string): Observable<Goal> {
-    return this.http.get<Goal>(`//localhost:8000/api/goals/${id}`);
+    return this.http.get<Goal>(`//${this.host}/api/goals/${id}`);
   }
 
   deleteGoalByID(id: string) {
-    return this.http.delete(`//localhost:8000/api/goals/${id}`)
+    return this.http.delete(`//${this.host}/api/goals/${id}`)
   }
 
   editGoalByID(id: string, goal: Goal) {
@@ -35,11 +37,12 @@ export class GoalService {
       replacement: goal.replacement,
       phase: goal.phase,
       parentid: goal.parentid,
-      dueDate: goal.dueDate
+      dueDate: goal.dueDate,
+      isDaily: goal.isDaily
     }
 
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
-    return this.http.put(`//localhost:8000/api/goals/${id}`, body,options)
+    return this.http.put(`//${this.host}/api/goals/${id}`, body,options)
   }
 
   addSubGoal(id: string, subGoal: Goal) {
@@ -47,6 +50,6 @@ export class GoalService {
                 description: subGoal.description,
                 parentid: id};
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
-    return this.http.post(`//localhost:8000/api/goals`, body, options)
+    return this.http.post(`//${this.host}/api/goals`, body, options)
   }
 }

@@ -10,6 +10,8 @@ cult of extreme productivity.
 speak/review goals by the right person.
 
 CORE:
+system where for a goal you can define a set of actions
+everytime you done one of the actions you press a button on the action and receive points // later you can track how many times you repeat the action for a given period of time
 unit tests
 time slots planning for your daily goals routine
 back button

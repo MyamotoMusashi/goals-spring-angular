@@ -16,6 +16,7 @@ export class Goal {
     private _phase: string;
     private _parentid: string;
     private _dueDate: string;
+    private _isDaily: boolean;
 
 
     constructor(title, id, description) {
@@ -159,4 +160,13 @@ export class Goal {
     set dueDate(value:string ){
         this._dueDate = value;
     }
+
+    get isDaily(): boolean{
+        return this._isDaily;
+    }
+
+    set isDaily(value: boolean){
+        this._isDaily = value;
+    }
+
 }

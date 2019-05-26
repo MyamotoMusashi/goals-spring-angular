@@ -17,44 +17,26 @@ export class GoalsComponent implements OnInit {
   constructor(private goalsService: GoalsService, private goalService: GoalService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    
+
     this.route.queryParamMap.subscribe(params => {
       let query: string;
       query = params.get("state")
       this.header = query;
       switch (query) {
         case "active":
-          this.goals = [];
-          this.goalsService.getAllGoalsByQuery(query).subscribe(goals => {
-            goals.sort(this.sortGoalsByPriority);
-            for (let i = 0; i < goals.length; i = i + 1) {
-              if (goals[i].parentid == '0') {
-                this.goals.push(goals[i]);
-              }
-            }
-          });
+          this.getAllActiveGoalsByQuery("active");
           break;
         case "waiting":
-          this.goals = [];
-          this.goalsService.getAllGoalsByQuery(query).subscribe(goals => {
-            goals.sort(this.sortGoalsByPriority);
-            for (let i = 0; i < goals.length; i = i + 1) {
-              if (goals[i].parentid == '0') {
-                this.goals.push(goals[i]);
-              }
-            }
-          });
+          this.getAllGoalsByQuery("waiting");
+          break;
+        case "inbox":
+          this.getAllGoalsByQuery("inbox");
+          break;
+        case "daily":
+          this.getAllGoalsByQuery("daily");
           break;
         case null:
-          this.goals = [];
-          this.goalsService.getAllGoals().subscribe(goals => {
-            goals.sort(this.sortGoalsByPriority)
-            for (let i = 0; i < goals.length; i = i + 1) {
-              if (goals[i].parentid == '0') {
-                this.goals.push(goals[i]);
-              }
-            }
-          });
+          this.getAllGoalsByQuery(null);
           break;
       }
     })
@@ -66,30 +48,40 @@ export class GoalsComponent implements OnInit {
     this.goalService.editGoalByID(id, goal).subscribe();
   }
 
-  sortGoalsByPriority(a,b){
+  sortGoalsByPriority(a, b) {
     return a.priority - b.priority;
   }
 
-  refreshGoalList(event: boolean){
-    if(event){
+  refreshGoalList(event: boolean) {
+    if (event) {
       let query = this.route.snapshot.queryParamMap.get("state");
       this.getAllGoalsByQuery(query);
     }
   }
 
-  getAllGoalsByQuery(query: string){
+  getAllGoalsByQuery(query: string) {
     this.goals = [];
     this.goalsService.getAllGoalsByQuery(query).subscribe(goals => {
       goals.sort(this.sortGoalsByPriority);
       for (let i = 0; i < goals.length; i = i + 1) {
-        if (goals[i].parentid == '0') {
+        if (goals[i].parentid === null) {
           this.goals.push(goals[i]);
         }
       }
     });
   }
 
-  download(){
+  getAllActiveGoalsByQuery(query: string) {
+    this.goals = [];
+    this.goalsService.getAllGoalsByQuery(query).subscribe(goals => {
+      goals.sort(this.sortGoalsByPriority);
+      for (let i = 0; i < goals.length; i = i + 1) {
+          this.goals.push(goals[i]);
+      }
+    });
+  }
+
+  download() {
     console.log("it works");
   }
 }
