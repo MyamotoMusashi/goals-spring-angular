@@ -19,6 +19,7 @@ export class GoalsListComponent implements OnInit {
   constructor(private goalService: GoalService) { }
 
   ngOnInit() {
+    console.log(this.goals);
   }
 
   completeGoal(event: any, goal: Goal){

@@ -7,7 +7,7 @@ import { Goal } from './models/goal.model';
 })
 export class GoalsService {
 
-  private host: string = "localhost";
+  private host: string = "192.168.0.12";
 
   constructor(private http: HttpClient) { }
 

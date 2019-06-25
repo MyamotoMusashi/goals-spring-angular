@@ -1,9 +1,13 @@
-#goals{
+.goals2{
 	list-style-type: none;
 	margin:0;
 	padding:0;
 	height:80vh;
 	overflow-y:scroll;
+}
+
+.goals{
+	list-style-type: none;
 }
 
 #goal-header{
@@ -40,6 +44,14 @@
 
 #goal-item:hover td{
 	border-color: white;
+}
+
+#expand_checkbox{
+	font-size: 20px;
+}
+
+#complete_checkbox{
+	color:whitesmoke;
 }
 
 list-group ul li a{

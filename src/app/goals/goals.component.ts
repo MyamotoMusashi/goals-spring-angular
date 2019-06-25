@@ -62,11 +62,12 @@ export class GoalsComponent implements OnInit {
   getAllGoalsByQuery(query: string) {
     this.goals = [];
     this.goalsService.getAllGoalsByQuery(query).subscribe(goals => {
-      goals.sort(this.sortGoalsByPriority);
+      //goals.sort(this.sortGoalsByPriority);
       for (let i = 0; i < goals.length; i = i + 1) {
-        if (goals[i].parentid === null) {
+      /*   if (goals[i].parentid === null) {
           this.goals.push(goals[i]);
-        }
+        } */
+        this.goals.push(goals[i]);
       }
     });
   }
@@ -74,7 +75,7 @@ export class GoalsComponent implements OnInit {
   getAllActiveGoalsByQuery(query: string) {
     this.goals = [];
     this.goalsService.getAllGoalsByQuery(query).subscribe(goals => {
-      goals.sort(this.sortGoalsByPriority);
+      //goals.sort(this.sortGoalsByPriority);
       for (let i = 0; i < goals.length; i = i + 1) {
           this.goals.push(goals[i]);
       }
