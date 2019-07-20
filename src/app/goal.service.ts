@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../environments/environment';
 import { Goal } from './models/goal.model';
 import { Observable } from 'rxjs';
 
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class GoalService {
 
-  private host: string = "localhost";
+  private host: string = environment.apiHost;
 
   constructor(private http: HttpClient) { }
 
@@ -30,7 +31,6 @@ export class GoalService {
       remainingWork: goal.remainingWork,
       justification: goal.justification,
       isReoccuring: goal.isReoccuring,
-      priority: goal.priority,
       idealOutcome: goal.idealOutcome,
       scope: goal.scope,
       blockingReason: goal.blockingReason,
