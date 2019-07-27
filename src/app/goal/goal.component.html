@@ -1,7 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 <div id="goal-wrapper" class="row">
 	<div id="goal-details" class="col-12 list-group">
-		<h1 id="goal-title">{{goal.title}} ({{tasks.length}})</h1>
+		<h1 id="goal-title" *ngIf="goal.children">{{goal.title}} ({{goal.children.length}})</h1>
 		<p class="task-item">{{goal.description}}</p>
 		<div class="row">
 			<div class="col-3">
@@ -26,7 +26,7 @@
 		<p class="task-item">isCompleted: {{goal.isCompleted}}</p>
 		<p class="task-item">isReoccuring: {{goal.isReoccuring}}</p>
 		<p class="task-item">Priority: {{goal.priority}}</p>
-		<app-goals-list [goals]="tasks"></app-goals-list>
+		<app-goals-list [goals]="goal.children"></app-goals-list>
 		<a routerLink="/goals/{{goal.id}}/subGoals/add" id="addSubGoal" class="btn btn-link">Add SubGoal</a>
 	</div>
 </div>

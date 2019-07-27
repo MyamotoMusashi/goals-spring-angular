@@ -19,7 +19,13 @@ export class AddGoalComponent implements OnInit {
 
   addGoal() {
     this.goalsService.addGoal(this.goal).subscribe(response => {
-      this.router.navigateByUrl('/goals')
+      if (response){
+        this.router.navigateByUrl('/goals')
+        let alert = document.getElementById('alert-primary');
+        let alertTitle = document.getElementById('alert-primary-title')
+        alertTitle.innerText = `Goal "${this.goal.title}" successfully added!`
+        alert.style.display = "block";
+      }
     });
   }
 

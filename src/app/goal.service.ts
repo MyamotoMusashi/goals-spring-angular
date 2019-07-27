@@ -17,8 +17,8 @@ export class GoalService {
     return this.http.get<Goal>(`//${this.host}/api/goals/${id}`);
   }
 
-  deleteGoalByID(id: string) {
-    return this.http.delete(`//${this.host}/api/goals/${id}`)
+  deleteGoalByID(id: string): Observable<Goal> {
+    return this.http.delete<Goal>(`//${this.host}/api/goals/${id}`);
   }
 
   editGoalByID(id: string, goal: Goal) {

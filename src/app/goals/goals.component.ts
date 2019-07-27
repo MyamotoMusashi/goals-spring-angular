@@ -67,9 +67,11 @@ export class GoalsComponent implements OnInit {
       /*   if (goals[i].parentid === null) {
           this.goals.push(goals[i]);
         } */
-        this.goals.push(goals[i]);
+        this.goals[i] = goals[i];
+        this.goals[i].priority = i;
       }
     });
+    
   }
 
   getAllActiveGoalsByQuery(query: string) {
@@ -77,7 +79,9 @@ export class GoalsComponent implements OnInit {
     this.goalsService.getAllGoalsByQuery(query).subscribe(goals => {
       //goals.sort(this.sortGoalsByPriority);
       for (let i = 0; i < goals.length; i = i + 1) {
-          this.goals.push(goals[i]);
+          //this.goals.push(goals[i]);
+          this.goals[i] = goals[i];
+          this.goals[i].priority = i;
       }
     });
   }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GoalService } from '../goal.service';
-import { GoalsService } from '../goals.service';
 import { SortablejsOptions } from 'angular-sortablejs';
 
 @Component({
@@ -12,27 +11,17 @@ import { SortablejsOptions } from 'angular-sortablejs';
 export class GoalComponent implements OnInit {
 
   goal = {};
-  tasks = [];
-  
 
-  constructor(private goalService: GoalService, private goalsService: GoalsService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private goalService: GoalService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.goalService.getGoalByID(id).subscribe(goal => {
       this.goal = goal;
     });
-    this.goalsService.getAllGoals().subscribe(goals => {
-      for(let i = 0; i < goals.length; i=i+1){
-        if (goals[i].parentid == id){
-          this.tasks.push(goals[i]);
-        }
-      }
-    })
   }
 
   ngOnDestroy(){
-    console.log(this.goal);
   }
 
   eventOptions: SortablejsOptions = {
@@ -43,8 +32,12 @@ export class GoalComponent implements OnInit {
 
   deleteGoalByID() {
     const id = this.route.snapshot.paramMap.get('id')
-    this.goalService.deleteGoalByID(id).subscribe(() => {
+    this.goalService.deleteGoalByID(id).subscribe((deletedGoal) => {
       this.router.navigateByUrl('/goals')
+      let alert = document.getElementById('alert-primary');
+        let alertTitle = document.getElementById('alert-primary-title')
+        alertTitle.innerText = `Goal "${deletedGoal.title}" successfully deleted!`
+        alert.style.display = "block";
     })
   }
 

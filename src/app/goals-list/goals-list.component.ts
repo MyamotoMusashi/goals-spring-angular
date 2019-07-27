@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, SimpleChanges } from '@angular/core';
 import { Goal } from '../models/goal.model';
 import { GoalService } from '../goal.service';
+import { GoalsService } from '../goals.service';
 
 @Component({
   selector: 'app-goals-list',
@@ -10,17 +11,15 @@ import { GoalService } from '../goal.service';
 export class GoalsListComponent implements OnInit {
   
   @Input()
-  goals = [];
+  goals = [] as Goal[];
 
   @Output()
   refreshGoalList: EventEmitter<boolean> = new EventEmitter<boolean>()
 
 
-  constructor(private goalService: GoalService) { }
+  constructor(private goalService: GoalService, private goalsService: GoalsService) { }
 
-  ngOnInit() {
-    console.log(this.goals);
-  }
+  ngOnInit() {}
 
   completeGoal(event: any, goal: Goal){
     let id: string = goal.id;
@@ -41,9 +40,12 @@ export class GoalsListComponent implements OnInit {
     }); ;
   }
 
-  changePriority(goal: Goal){
+  changePriority(event, goal: Goal){
     let id: string = goal.id;
-    this.goalService.editGoalByID(id, goal).subscribe(() => {
+    console.log(goal.priority)
+    console.log(event.currentTarget.value)
+    console.log(this.goals)
+    this.goalsService.changePriority(goal).subscribe(() => {
       this.refreshGoalList.emit(true);
     }); 
   }

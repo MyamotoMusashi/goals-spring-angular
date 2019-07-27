@@ -16,8 +16,8 @@
           <i class="fas fa-check-circle"></i>
       </span>
     </label>
-    <select id="priority" [(ngModel)]="goal.priority" name="priority" (change)="changePriority(goal)"
-      [value]='goal.priority'>
+    <select id="priority" [(ngModel)]="goal.priority"  name="priority" (change)="goal.priority = i;jojo = 5;changePriority($event, goal)"
+      >
       <option value="{{i}}" *ngFor="let goal of goals; let i = index">{{i}}</option>
     </select>
     <a href="/goals/{{goal.id}}" [class.completed]="goal.isCompleted" *ngIf="!goal.dueDate;else other_content">
