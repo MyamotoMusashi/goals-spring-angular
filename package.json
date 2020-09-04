@@ -23,7 +23,7 @@
     "body-parser": "^1.18.2",
     "core-js": "^2.5.4",
     "express": "^4.16.2",
-    "mongodb": "^3.0.4",
+    "mongodb": "^3.1.13",
     "node-excel-export": "^1.4.4",
     "pug": "^2.0.1",
     "rxjs": "^6.0.0",
