@@ -27,7 +27,7 @@
     "node-excel-export": "^1.4.4",
     "pug": "^2.0.1",
     "rxjs": "^6.0.0",
-    "socket.io": "^2.1.0",
+    "socket.io": "^2.4.0",
     "sortablejs": "^1.7.0",
     "zone.js": "~0.8.26"
   },
