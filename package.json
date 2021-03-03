@@ -25,7 +25,7 @@
     "express": "^4.16.2",
     "mongodb": "^3.0.4",
     "node-excel-export": "^1.4.4",
-    "pug": "^2.0.1",
+    "pug": "^3.0.1",
     "rxjs": "^6.0.0",
     "socket.io": "^2.1.0",
     "sortablejs": "^1.7.0",
