@@ -22,7 +22,7 @@
     "@angular/router": "^6.1.0",
     "body-parser": "^1.18.2",
     "core-js": "^2.5.4",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "mongodb": "^3.0.4",
     "node-excel-export": "^1.4.4",
     "pug": "^2.0.1",
